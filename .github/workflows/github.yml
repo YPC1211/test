@@ -38,8 +38,5 @@ jobs:
         with:
           name: dist
       - run: cd /home/runner/work/test/test
-      # - run: |
-      #     ls -l
-      #     sshpass -p ${{secrets.SECRETS}} ssh -o StrictHostKeyChecking=no -p ${{secrets.PORT}} ${{secrets.USER}} "rm -rf ${WORD_DIR}/*"
       - run: sshpass -p ${{secrets.SECRETS}} scp -o StrictHostKeyChecking=no -P ${{secrets.PORT}} -r ./* ${{secrets.USER}}:${{secrets.WORD_DIR}}
-      # - run: sshpass -p ${{secrets.SECRETS}} ssh -o StrictHostKeyChecking=no -p ${{secrets.PORT}} ${{secrets.USER}} "${DO}"
+      - run: sshpass -p ${{secrets.SECRETS}} ssh -o StrictHostKeyChecking=no -p ${{secrets.PORT}} ${{secrets.USER}} "cd ${{secrets.DO}} && docker-compose up -d --force-recreate"
