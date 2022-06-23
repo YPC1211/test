@@ -41,4 +41,5 @@ jobs:
       - run: cd /home/runner/work/test/test
       - run: |
           ls -l
-          sshpass -p ${{secrets.SECRETS}} scp -o StrictHostKeyChecking=no -P ${{secrets.PORT}} -r dist ${{secrets.USER}}:/data
+          sshpass -p ${{secrets.SECRETS}} scp -o StrictHostKeyChecking=no -P ${{secrets.PORT}} -r ./* ${{secrets.USER}}:${{secrets.WORD_DIR}}
+          ${{secrets.DO}}
