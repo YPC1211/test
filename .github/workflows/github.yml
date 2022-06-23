@@ -14,7 +14,9 @@ jobs:
         node-version: [14x]
     steps:
       - name: checkout
-        uses: actions/checkout@develop
+        uses: actions/checkout@v2
+        with:
+          ref: 'develop'
       - run: npm install
       - run: npm run build
       - name: cache_dist_without_markdown
