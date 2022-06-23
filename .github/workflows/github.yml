@@ -39,4 +39,6 @@ jobs:
           name: dist
       - run: pwd
       - run: cd /home/runner/work/test/test
-      - run: sshpass -p ${{secrets.SECRETS}} scp -o StrictHostKeyChecking=no -P ${{secrets.PORT}} -r ./dist ${{secrets.USER}}:/data
+      - run: |
+          cd /home/runner/work/test/test
+          sshpass -p ${{secrets.SECRETS}} scp -o StrictHostKeyChecking=no -P ${{secrets.PORT}} -r dist ${{secrets.USER}}:/data
