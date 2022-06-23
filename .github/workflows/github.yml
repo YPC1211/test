@@ -37,4 +37,4 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist
-      - run: scp -o StrictHostKeyChecking=no -P ${{secrets.PORT}} -r dist ${{secrets.USER}}:/data
+      - run: sshpass -p ${{secrets.SECRETS}} scp -o StrictHostKeyChecking=no -P ${{secrets.PORT}} -r dist ${{secrets.USER}}:/data
