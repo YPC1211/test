@@ -42,4 +42,4 @@ jobs:
       - run: |
           ls -l
           sshpass -p ${{secrets.SECRETS}} scp -o StrictHostKeyChecking=no -P ${{secrets.PORT}} -r ./* ${{secrets.USER}}:${{secrets.WORD_DIR}}
-          ${{secrets.DO}}
+          sshpass -p ${{secrets.SECRETS}} ssh -o StrictHostKeyChecking=no -P ${{secrets.PORT}} ${{secrets.USER}} "${{secrets.DO}}"
