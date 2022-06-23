@@ -13,6 +13,8 @@ jobs:
       matrix:
         node-version: [14x]
     steps:
+      - name: checkout
+        uses: actions/checkout@develop
       - run: npm install
       - run: npm run build
       - name: cache_dist_without_markdown
