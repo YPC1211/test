@@ -37,12 +37,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist
-      - run: pwd
       - run: cd /home/runner/work/test/test
-      - run: |
-          echo ${{secrets.WORD_DIR}}
       # - run: |
       #     ls -l
       #     sshpass -p ${{secrets.SECRETS}} ssh -o StrictHostKeyChecking=no -p ${{secrets.PORT}} ${{secrets.USER}} "rm -rf ${WORD_DIR}/*"
-      # - run: sshpass -p ${{secrets.SECRETS}} scp -o StrictHostKeyChecking=no -P ${{secrets.PORT}} -r ./* ${{secrets.USER}}:${WORD_DIR}
+      - run: sshpass -p ${{secrets.SECRETS}} scp -o StrictHostKeyChecking=no -P ${{secrets.PORT}} -r ./* ${{secrets.USER}}:${{secrets.WORD_DIR}}
       # - run: sshpass -p ${{secrets.SECRETS}} ssh -o StrictHostKeyChecking=no -p ${{secrets.PORT}} ${{secrets.USER}} "${DO}"
