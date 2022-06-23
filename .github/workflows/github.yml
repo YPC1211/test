@@ -23,7 +23,7 @@ jobs:
             !dist/**/*.md
           retention-days: 3
 
-  build:
+  depoly:
     name: deploy
     needs: build_dist
     runs-on: ubuntu-latest
