@@ -37,14 +37,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist
-        env:
-          WORD_DIR: ${{secrets.WORD_DIR}}
-          DO: ${{secrets.DO}}
       - run: pwd
       - run: cd /home/runner/work/test/test
       - run: |
-          echo ${WORD_DIR}
-          echo $WORD_DIR
+          echo ${{secrets.WORD_DIR}}
       # - run: |
       #     ls -l
       #     sshpass -p ${{secrets.SECRETS}} ssh -o StrictHostKeyChecking=no -p ${{secrets.PORT}} ${{secrets.USER}} "rm -rf ${WORD_DIR}/*"
